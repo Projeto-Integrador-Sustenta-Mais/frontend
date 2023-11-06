@@ -1,0 +1,21 @@
+.fundoLogin {
+    background-image: url("https://www.mundodomarketing.com.br/wp-content/uploads/2023/04/Sustentabilidade-greenwashing-e-desconfianca-82-dos-brasileiros-acreditam-que-produtos-sao-feitos-para-parecer-mais-sustentaveis-do-que-realmente-sao.jpg");
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+label{
+    color: rgb(82 82 91);
+}
+
+input { 
+    
+    border-color: rgb(82 82 91)!important;
+}
+
+#textoParaCadastrar {
+    color: rgb(82 82 91);
+}

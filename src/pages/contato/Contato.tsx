@@ -1,10 +1,8 @@
-
-
 function Contato() {
     return (
-        <div className="grid h-screen w-screen place-items-center font-bold" >
+        <div className="grid h-screen w-full place-items-center font-bold" >
             <form className="flex justify-center items-center flex-col w-1/4 gap-4">
-                <h2 className="text-4xl text-lime-400 ">Contato</h2>
+                <h2 className="text-4xl text-green-600 ">Contato</h2>
                 <div className="flex flex-col w-full">
                     <label htmlFor="nome">Nome</label>
                     <input
@@ -48,7 +46,7 @@ function Contato() {
                 </div>
                 <div className="flex justify-around w-full gap-8">
                     <button
-                        className='rounded text-white bg-indigo-400 hover:bg-indigo-900 w-28 py-2' type='submit'>
+                        className='rounded text-white bg-green-600 hover:bg-lime-400 w-28 py-2' type='submit'>
                         Enviar
                     </button>
                 </div>

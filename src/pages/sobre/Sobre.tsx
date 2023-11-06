@@ -4,16 +4,16 @@ import './Sobre.css'
 function Sobre() {
   return (
     <>
-      <div className="w-screen flex justify-center p-16 items-center ">
+      <div className="w-full flex justify-center p-16 items-center ">
 
         <div className='w-2/4 '>
           <img src={img} alt="img"/> 
         </div>
                
         <div className="max-w-7xl flex flex-col items-center w-2/4 ml-8">
-          <h1 className="text-lime-400 text-4xl mb-8">Sobre Nós</h1>
+          <h1 className="text-green-600 text-4xl mb-8">Sobre Nós</h1>
 
-          <p>Com orgulho, destacamos que nosso Marketplace Sustentável é um projeto da Generation Brasil, desenvolvido em estreita colaboração entre nossos dedicados colegas. Este projeto foi concebido com base no tema das Objetivos de Desenvolvimento Sustentável (ODS) da ONU, com foco específico no objetivo de "Consumo e Produção Sustentáveis".
+          <p id='textoSobreNos'>Com orgulho, destacamos que nosso Marketplace Sustentável é um projeto da Generation Brasil, desenvolvido em estreita colaboração entre nossos dedicados colegas. Este projeto foi concebido com base no tema das Objetivos de Desenvolvimento Sustentável (ODS) da ONU, com foco específico no objetivo de "Consumo e Produção Sustentáveis".
           <br></br>
           <br></br>
           Nossa parceria com a ONU e nosso compromisso com os ODS refletem nossa determinação em contribuir de forma significativa para a construção de um mundo mais sustentável. Entendemos que o consumo responsável desempenha um papel fundamental na promoção do bem-estar das pessoas e na proteção do planeta.

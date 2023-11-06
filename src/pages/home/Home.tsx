@@ -1,7 +1,7 @@
 function Home() {
     return (
         <>
-            <div className="w-screen flex justify-center bg-[url('./assets/img.jpg')] h-screen">
+            <div className="w-full flex justify-center bg-[url('./assets/img.jpg')] h-screen">
                     <div className=" text-white	 max-w-7xl flex flex-col items-center">
                         <h2 className=" mt-4 font-bold text-4xl mb-8">Produção e Consumo Sustentáveis</h2>
 
