@@ -2,12 +2,19 @@ import { createContext, ReactNode, useState } from "react"
 
 import UsuarioLogin from "../models/UsuariosLogin"
 import { login } from "../service/Service"
+import Produto from "../models/Produto"
 
 interface AuthContextProps {
     usuario: UsuarioLogin
     handleLogout(): void
     handleLogin(usuario: UsuarioLogin): Promise<void>
     isLoading: boolean
+    
+    adicionarProduto: (produto: Produto) => void
+    removerProduto: (produtoId: number) => void
+    limparCart: () => void
+    items: Produto[]
+    quantidadeItems: number
 }
 
 interface AuthProviderProps {
@@ -54,8 +61,31 @@ export function AuthProvider({ children }: AuthProviderProps) {
         })
     }
 
+    const [items, setItems] = useState<Produto[]>([])
+
+    const quantidadeItems = items.length
+
+    function adicionarProduto(produto: Produto) {
+        setItems(state => [...state, produto])
+    }
+    function removerProduto(produtoId: number) {
+        const indice = items.findIndex(items => items.id === produtoId)
+        let novoCart = [...items]
+
+        if(indice >= 0){
+            novoCart.splice(indice, 1)
+            setItems(novoCart)
+        }
+    }
+
+    function limparCart() {
+        alert("Compra Efetuada com Sucesso")
+        setItems([])
+    }
+
+
     return (
-        <AuthContext.Provider value={{ usuario, handleLogin, handleLogout, isLoading }}>
+        <AuthContext.Provider value={{ adicionarProduto, removerProduto, limparCart, items, quantidadeItems, usuario, handleLogin, handleLogout, isLoading }}>
             {children}
         </AuthContext.Provider>
     )

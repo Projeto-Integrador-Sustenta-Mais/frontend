@@ -1,0 +1,16 @@
+.link-style {
+    color: #dc2626;
+    border:  1px #dc2626 solid;
+    background-color: #fff;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none; 
+    margin-left: 16px;
+  }
+  .link-style:hover {
+    background-color: #dc2626; 
+    color: #f5f5f5; 
+  }
+  

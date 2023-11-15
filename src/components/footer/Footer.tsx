@@ -6,7 +6,7 @@ function Footer() {
 
     return (
         <>
-            <div className="flex justify-center  bg-green-600 text-white">
+            <div className="flex justify-center bg-[#9C9C42] text-white">
                 <div className="container flex flex-col items-center py-4">
                     <p className='text-xl font-bold'>
                             Sustenta Mais | Copyright: {data}

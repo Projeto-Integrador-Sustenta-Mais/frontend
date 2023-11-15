@@ -1,8 +1,7 @@
-import Produto from "./Produto";
 
-export default interface UsuarioLogin {
+export default interface Categoria {
     id: number;
     tipo: string;
-    isValid: boolean;
-    produto: Produto | null;
+    disponivel: boolean;
+    
 }

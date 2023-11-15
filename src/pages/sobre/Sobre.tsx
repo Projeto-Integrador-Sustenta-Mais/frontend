@@ -11,7 +11,7 @@ function Sobre() {
         </div>
                
         <div className="max-w-7xl flex flex-col items-center w-2/4 ml-8">
-          <h1 className="text-green-600 text-4xl mb-8">Sobre Nós</h1>
+          <h1 className="text-[#9C9C42] text-4xl mb-8">Sobre Nós</h1>
 
           <p id='textoSobreNos'>Com orgulho, destacamos que nosso Marketplace Sustentável é um projeto da Generation Brasil, desenvolvido em estreita colaboração entre nossos dedicados colegas. Este projeto foi concebido com base no tema das Objetivos de Desenvolvimento Sustentável (ODS) da ONU, com foco específico no objetivo de "Consumo e Produção Sustentáveis".
           <br></br>

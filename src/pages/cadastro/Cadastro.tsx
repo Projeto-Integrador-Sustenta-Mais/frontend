@@ -72,7 +72,7 @@ function Cadastro() {
             <form
                 className='flex justify-center items-center flex-col w-2/3 gap-3'
                 onSubmit={cadastrarNovoUsuario}>
-                <h2 className='text-green-600 text-5xl'>Cadastrar</h2>
+                <h2 className='text-[#9C9C42]  text-5xl'>Cadastrar</h2>
                 <div className="flex flex-col w-full">
                     <label htmlFor="nome">Nome</label>
                     <input
@@ -140,7 +140,7 @@ function Cadastro() {
                         Cancelar
                     </button>
                     <button
-                        className='rounded text-white bg-green-600 hover:bg-lime-400 w-1/2 
+                        className='rounded text-white bg-[#9C9C42]  hover:bg-[#D9D94B] w-1/2 
                                                py-2 flex justify-center'
                         type='submit'>
                         {isLoading ? <RotatingLines
