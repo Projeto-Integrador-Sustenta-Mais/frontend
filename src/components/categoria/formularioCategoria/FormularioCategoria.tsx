@@ -4,6 +4,7 @@ import { RotatingLines } from "react-loader-spinner";
 import { atualizar, buscar, cadastrar } from "../../../service/Service";
 import { AuthContext } from "../../../context/AuthContext";
 import Categoria from "../../../models/Categoria";
+import { toastAlerta } from "../../../utils/toastAlerta";
 
 
 function FormularioCategoria() {
@@ -27,7 +28,7 @@ function FormularioCategoria() {
             })
         } catch (error: any) {
             if (error.toString().includes('403')) {
-                alert('O token expirou, favor logar novamente')
+                toastAlerta('O token expirou, favor logar novamente', "info")
                 handleLogout()
             }
         }
@@ -35,7 +36,7 @@ function FormularioCategoria() {
 
     useEffect(() => {
         if (token === '') {
-            alert('Você precisa estar logado');
+            
             navigate('/login');
         }
     }, [token]);
@@ -66,14 +67,14 @@ function FormularioCategoria() {
                     }
                 })
 
-                alert('Categoria atualizado com sucesso')
+                toastAlerta('Categoria atualizado com sucesso', "sucesso")
 
             } catch (error: any) {
                 if (error.toString().includes('403')) {
-                    alert('O token expirou, favor logar novamente')
+                    toastAlerta('O token expirou, favor logar novamente', "info")
                     handleLogout()
                 } else {
-                    alert('Erro ao atualizar a categoria')
+                    toastAlerta('Erro ao atualizar a categoria', "error")
                 }
             }
 
@@ -85,14 +86,14 @@ function FormularioCategoria() {
                     }
                 })
 
-                alert('Categoria cadastrado com sucesso')
+                toastAlerta('Categoria cadastrado com sucesso', "sucesso")
 
             } catch (error: any) {
                 if (error.toString().includes('403')) {
-                    alert('O token expirou, favor logar novamente')
+                    toastAlerta('O token expirou, favor logar novamente', "info")
                     handleLogout()
                 } else {
-                    alert('Erro ao cadastrar o Categoria')
+                    toastAlerta('Erro ao cadastrar o Categoria', "error")
                 }
             }
         }

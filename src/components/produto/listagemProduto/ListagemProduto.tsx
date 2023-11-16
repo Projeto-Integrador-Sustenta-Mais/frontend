@@ -1,10 +1,11 @@
-import { useContext, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Dna } from 'react-loader-spinner';
+import { ReactNode, useContext, useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { Triangle } from 'react-loader-spinner';
 import { buscar } from '../../../service/Service';
 import { AuthContext } from '../../../context/AuthContext';
 import Produto from '../../../models/Produto';
 import CardProduto from '../cardProduto/CardProduto';
+import { toastAlerta } from '../../../utils/toastAlerta';
 
 
 function ListaProduto() {
@@ -26,7 +27,7 @@ function ListaProduto() {
 
         } catch (error: any) {
             if (error.toString().includes('403')) {
-                alert('O token expirou, favor logar novamente')
+                toastAlerta('O token expirou, favor logar novamente', "info")
                 handleLogout()
             }
         }
@@ -34,7 +35,6 @@ function ListaProduto() {
 
     useEffect(() => {
         if (token === '') {
-            alert('Você precisa estar logado')
             navigate('/');
         }
     }, [token])
@@ -43,28 +43,50 @@ function ListaProduto() {
         buscarProduto()
     }, [produtos.length])
 
+    const local = useLocation();
+
+    let listaCard : ReactNode;
+
+    switch (local.pathname) {
+        case '/home':
+            listaCard = <div className='container mx-32 
+            grid  md:grid-cols-5 gap-24 pb-32 mt-8'>
+                    {produtos.map((produto) => (
+                        <CardProduto key={produto.id} produto={produto} />
+                    ))}
+                </div>
+            break;
+        default:
+            listaCard = <div className='container mx-32 
+            grid  md:grid-cols-5 gap-24 pb-32 mt-8'>
+                    {produtos.map((produto) => (
+                       produto.user?.id === usuario.id ?  <CardProduto key={produto.id} produto={produto} /> : false
+                    ))}
+    
+                </div>
+            break;
+    }
+
+
+
     return (
         <>
-        {produtos.length === 0 && (
-            <Dna
-                visible={true}
-                height="200"
-                width="200"
-                ariaLabel="dna-loading"
-                wrapperStyle={{}}
-                wrapperClass="dna-wrapper mx-auto"
-            />
-        )}
+            <div className='sniper'>
+                {produtos.length === 0 && (
+                    <Triangle
+                        height="80"
+                        width="80"
+                        color="#4fa94d"
+                        ariaLabel="triangle-loading"
+                        wrapperStyle={{}}
+                        visible={true}
+                    />
+                )}
+            </div>
 
-        <div className='container mx-32 
-        grid  md:grid-cols-5 gap-24 pb-32'>
-            {produtos.map((produto) => (
-                <CardProduto key={produto.id} produto={produto} />
-            ))}
-
-        </div>
-    </>
-)
+            {listaCard}
+        </>
+    )
 }
 
 export default ListaProduto

@@ -4,6 +4,7 @@ import { RotatingLines } from "react-loader-spinner"
 import { buscar, deletar } from '../../../service/Service'
 import { AuthContext } from '../../../context/AuthContext'
 import Produto from '../../../models/Produto'
+import { toastAlerta } from '../../../utils/toastAlerta'
 
 
 function DeletarProduto() {
@@ -27,7 +28,7 @@ function DeletarProduto() {
             })
         } catch (error: any) {
             if (error.toString().includes('403')) {
-                alert('O token expirou, favor logar novamente')
+                toastAlerta('O token expirou, favor logar novamente', "info")
                 handleLogout()
             }
         }
@@ -35,7 +36,7 @@ function DeletarProduto() {
 
     useEffect(() => {
         if (token === '') {
-            alert('Você precisa estar logado')
+            
             navigate('/login')
         }
     }, [token])
@@ -56,10 +57,10 @@ function DeletarProduto() {
                 }
             })
 
-            alert('Produto apagado com sucesso')
+            toastAlerta('Produto apagado com sucesso', "sucesso")
 
         } catch (error) {
-            alert('Erro ao apagar o Produto')
+            toastAlerta('Erro ao apagar o Produto', "error")
         }
 
         setIsLoading(false)
@@ -71,32 +72,27 @@ function DeletarProduto() {
     }
 
     return (
-        <div className='container w-1/3 mx-auto'>
+        <div className='container w-1/3 mx-auto '>
             <h1 className='text-4xl text-center my-4'>Deletar Produto</h1>
 
             <p className='text-center font-semibold mb-4'>
                 Você tem certeza de que deseja apagar o produto a seguir?
             </p>
 
-            <div className='border flex flex-col rounded-2xl overflow-hidden justify-between'>
-                <header className='py-2 px-6 bg-indigo-600 text-white font-bold text-2xl'>
+            <div className='border flex flex-col rounded-2xl overflow-hidden justify-between p-8 bg-white'>
+                <header className=' text-[#262626] font-bold text-2xl'>
                 Produto
                 </header>
 
-                <div className="p-4">
+                <div className="text-[#262626] mb-6">
                     <p className='text-xl h-full'>{produto.nome}</p>
                     <p>{produto.descricao}</p>
                 </div>
                 <div className="flex">
+                    
                     <button
-                        className='text-slate-100 bg-red-400 hover:bg-red-600 w-full py-2'
-                        onClick={retornar}>
-                        Não
-                    </button>
-
-                    <button
-                        className='w-full text-slate-100 bg-indigo-400 
-                        hover:bg-indigo-600 flex items-center justify-center'
+                        className='w-full mr-8 text-slate-100 bg-[#9C9C42]
+                        hover:bg-[#D9D94B] flex items-center justify-center p-2 rounded'
                         onClick={deletarProduto}>
 
                         {isLoading ?
@@ -110,6 +106,13 @@ function DeletarProduto() {
                             <span>Sim</span>
                         }
                     </button>
+
+                    <button
+                        className='text-[#dc2626] bg-white border-solid border-[1px] border-[#dc2626] hover:text-white  hover:bg-red-600 w-full py-2'
+                        onClick={retornar}>
+                        Não
+                    </button>
+
                 </div>
             </div>
         </div>

@@ -5,6 +5,7 @@ import { atualizar, buscar, cadastrar } from "../../../service/Service";
 import { AuthContext } from '../../../context/AuthContext';
 import Categoria from '../../../models/Categoria';
 import Produto from '../../../models/Produto';
+import { toastAlerta } from '../../../utils/toastAlerta';
 
 
 function FormularioProduto() {
@@ -48,7 +49,6 @@ function FormularioProduto() {
 
     useEffect(() => {
         if (token === '') {
-            alert('Você precisa estar logado');
             navigate('/');
         }
     }, [token])
@@ -93,14 +93,14 @@ function FormularioProduto() {
                     },
                 });
 
-                alert('Produto atualizado com sucesso')
+                toastAlerta('Produto atualizado com sucesso', "sucesso")
 
             } catch (error: any) {
                 if (error.toString().includes('403')) {
-                    alert('O token expirou, favor logar novamente')
+                    toastAlerta('O token expirou, favor logar novamente', "info")
                     handleLogout()
                 } else {
-                    alert('Erro ao atualizar o Produto')
+                    toastAlerta('Erro ao atualizar o Produto', "error")
                 }
             }
 
@@ -112,14 +112,14 @@ function FormularioProduto() {
                     },
                 })
 
-                alert('Produto cadastrado com sucesso');
+                toastAlerta('Produto cadastrado com sucesso', "sucesso");
 
             } catch (error: any) {
                 if (error.toString().includes('403')) {
-                    alert('O token expirou, favor logar novamente')
+                    toastAlerta('O token expirou, favor logar novamente', "info")
                     handleLogout()
                 } else {
-                    alert('Erro ao cadastrar o Produto');
+                    toastAlerta('Erro ao cadastrar o Produto', "error");
                 }
             }
         }
@@ -208,7 +208,7 @@ function FormularioProduto() {
                     type='submit'
                     disabled={carregandoCategoria}
                     className='flex justify-center rounded disabled:bg-slate-200 bg-[#9C9C42]
-                            hover:bg-[#D9D94B] text-white font-bold w-1/2 mx-auto py-2'
+                            hover:bg-[#D9D94B] text-white font-bold w-1/2 mx-auto mb-8 py-2'
                 >
                     {isLoading ?
                         <RotatingLines

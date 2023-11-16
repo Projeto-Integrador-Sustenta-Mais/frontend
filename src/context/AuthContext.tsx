@@ -3,6 +3,7 @@ import { createContext, ReactNode, useState } from "react"
 import UsuarioLogin from "../models/UsuariosLogin"
 import { login } from "../service/Service"
 import Produto from "../models/Produto"
+import { toastAlerta } from "../utils/toastAlerta"
 
 interface AuthContextProps {
     usuario: UsuarioLogin
@@ -40,12 +41,12 @@ export function AuthProvider({ children }: AuthProviderProps) {
         setIsLoading(true)
         try {
             await login(`/usuarios/logar`, userLogin, setUsuario)
-            alert("Usuário logado com sucesso")
+            toastAlerta("Usuário logado com sucesso", "sucesso")
             setIsLoading(false)
 
         } catch (error) {
             console.log(error)
-            alert("Dados do usuário inconsistentes")
+            toastAlerta("Dados do usuário inconsistentes", "error")
             setIsLoading(false)
         }
     }
@@ -67,6 +68,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
     function adicionarProduto(produto: Produto) {
         setItems(state => [...state, produto])
+        toastAlerta('Adicionado ao carrinho', "sucesso")
     }
     function removerProduto(produtoId: number) {
         const indice = items.findIndex(items => items.id === produtoId)
@@ -79,7 +81,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     }
 
     function limparCart() {
-        alert("Compra Efetuada com Sucesso")
+        toastAlerta("Compra Efetuada com Sucesso", "sucesso")
         setItems([])
     }
 

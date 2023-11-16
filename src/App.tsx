@@ -15,23 +15,26 @@ import FormularioProduto from './components/produto/formularioProduto/Formulario
 import ListaProduto from './components/produto/listagemProduto/ListagemProduto';
 import DeletarProduto from './components/produto/deletarProduto/DeletarProduto';
 import Carrinho from './pages/carrinho/Carrinho';
+import { ToastContainer } from 'react-toastify';
 
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
     <AuthProvider>
+      <ToastContainer />
       <BrowserRouter>
         <Navbar />
         <div className='min-h-[80vh]'>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Login />} />
             <Route path="/login" element={<Login />} />
             <Route path="/home" element={<Home />} />
             <Route path="/cadastro" element={<Cadastro />} />
             <Route path="/sobre" element={<Sobre />} />
             <Route path="/contato" element={<Contato />} />
             <Route path="/categorias" element={<ListaCategoria />} />
-            <Route path="/cadastrarCategorias" element={<FormularioCategoria />} />
+            <Route path="/cadastroCategoria" element={<FormularioCategoria />} />
             <Route path="/editarCategoria/:id" element={<FormularioCategoria />} />
             <Route path="/deletarCategoria/:id" element={<DeletarCategoria />} />
             <Route path="/produtos" element={<ListaProduto />} />
@@ -42,10 +45,9 @@ function App() {
           </Routes>
         </div>
         <Footer />
-
       </BrowserRouter>
     </AuthProvider>
-      )
+  );
 }
 
-      export default App
+export default App

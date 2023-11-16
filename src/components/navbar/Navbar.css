@@ -1,12 +1,4 @@
-.loginBtn {
-    color: #9C9C42;
-    border: 1px #9C9C42 solid;
-    padding: 8px 16px 8px 16px;
-    border-radius: 10px;
-}
 
-.loginBtn:hover {
-    background-color: #9C9C42; 
-    color: #f5f5f5; 
-  }
-  
+.iconCart {
+    color: #9C9C42;
+}

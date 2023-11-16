@@ -63,6 +63,3 @@ function CardProduto({ produto }: CardProdutoProps) {
 
 export default CardProduto
 
-// function context(AuthContext: Context<AuthContextProps>): { adicionarProduto: any; removerProduto: any } {
-//     throw new Error('Function not implemented.')
-// }

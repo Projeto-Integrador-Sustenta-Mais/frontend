@@ -1,4 +1,7 @@
 function Contato() {
+
+    
+
     return (
         <div className="grid h-screen w-full place-items-center font-bold" >
             <form className="flex justify-center items-center flex-col w-1/4 gap-4">
@@ -50,7 +53,7 @@ function Contato() {
                         Enviar
                     </button>
                 </div>
-            </form>
+            </form>    
         </div>
     )
 }
