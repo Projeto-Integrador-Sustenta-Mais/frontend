@@ -22,10 +22,7 @@ function Footer() {
                 </div>
             </div>
         )
-
     }
-
-
     return (
         <>
             {component}

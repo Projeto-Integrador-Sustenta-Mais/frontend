@@ -191,6 +191,7 @@ function FormularioProduto() {
                         className="border-2 border-slate-700 rounded p-2"
                     />
                 </div>
+
                 <div className="flex flex-col gap-2">
                     <p>Categoria do Produto</p>
                     <select name="categoria" id="categoria" className='border p-2 border-slate-800 rounded'
